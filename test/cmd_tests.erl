@@ -4,8 +4,6 @@
 
 -compile(export_all).
 
-
-
 cmd_test_() ->
 	[
 		?_assertEqual(

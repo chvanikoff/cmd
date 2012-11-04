@@ -7,9 +7,11 @@
 -define(TIMEOUT, 5000).
 -define(DATATYPE, list).
 
+-spec run(string()) -> string() | binary().
 run(Cmd) ->
 	run(Cmd, []).
 
+-spec run(string(), [tuple()]) -> string() | binary().
 run(Cmd, Options) ->
 	run(Cmd, proplists:get_value(timeout, Options, ?TIMEOUT), proplists:get_value(datatype, Options, ?DATATYPE)).
 
