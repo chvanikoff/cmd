@@ -4,9 +4,6 @@ CMD module
 
 It is a very simple async os:cmd implementation.
 
-There are several problems currently like impossibility to use commands like
-"echo a && echo b" (result of first command will be returned) but I will fix it asap.
-
 Also about future of the module:
 
 Currently I want to add option to allow returning list of strings instead of 1 long result.
