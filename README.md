@@ -4,7 +4,7 @@ CMD module
 
 It is a very simple async os:cmd implementation.
 
-Also about future of the module:
+About future of the module:
 
 Currently I want to add option to allow returning list of strings instead of 1 long result.
 
