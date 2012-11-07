@@ -11,6 +11,10 @@ cmd_test_() ->
 			cmd:run("echo testing")
 		),
 		?_assertEqual(
+			"first command result\nsecond one",
+			cmd:run("echo first command result && echo second one")
+		),
+		?_assertEqual(
 			<<"testing">>,
 			cmd:run("echo testing", [{datatype, binary}])
 		),

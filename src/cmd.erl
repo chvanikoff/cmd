@@ -13,7 +13,15 @@ run(Cmd) ->
 
 -spec run(string(), [tuple()]) -> string() | binary().
 run(Cmd, Options) ->
-	run(Cmd, proplists:get_value(timeout, Options, ?TIMEOUT), proplists:get_value(datatype, Options, ?DATATYPE)).
+	Timeout = proplists:get_value(timeout, Options, ?TIMEOUT),
+	Datatype = proplists:get_value(datatype, Options, ?DATATYPE),
+	Cmd2 = case string:str(Cmd, "&&") of
+		0 ->
+			Cmd;
+		_ ->
+			"sh -c \"" ++ Cmd ++ "\""
+	end,
+	run(Cmd2, Timeout, Datatype).
 
 run(Cmd, Timeout, binary) ->
 	Port = erlang:open_port({spawn, Cmd}, [exit_status, binary]),
